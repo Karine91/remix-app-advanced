@@ -1,4 +1,4 @@
-import ExpenseStatistics from "../components/expenses/ExpenseStatistics";
+import ExpenseStatistics from "~/components/expenses/ExpenseStatistics";
 
 import Chart from "~/components/expenses/Chart";
 
