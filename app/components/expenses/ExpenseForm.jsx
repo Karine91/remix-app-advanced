@@ -22,8 +22,10 @@ function ExpenseForm() {
   const expenseData = expenses?.find((exp) => exp.id === id);
 
   if (id && !expenseData) {
-    throw new Response();
-    //return <p>Invalid expense id</p>;
+    // Error Boundary doesn't catch it....
+    // throw new Response();
+
+    return <p>Invalid expense id</p>;
   }
 
   const defaultValues = expenseData
