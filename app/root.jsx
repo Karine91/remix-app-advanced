@@ -75,6 +75,7 @@ export function CatchBoundary() {
 }
 
 export function ErrorBoundary({ error }) {
+  console.log("Error boundary error:", error);
   // other errors
   return (
     <Document title="An error occurred">

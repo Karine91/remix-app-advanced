@@ -22,21 +22,21 @@ function ExpenseForm() {
   const expenseData = expenses?.find((exp) => exp.id === id);
 
   if (id && !expenseData) {
-    throw new Response("", { status: 404 });
+    throw new Response();
     //return <p>Invalid expense id</p>;
   }
 
   const defaultValues = expenseData
     ? {
-        title: expenseData.title,
-        amount: expenseData.amount,
-        date: expenseData.date,
-      }
+      title: expenseData.title,
+      amount: expenseData.amount,
+      date: expenseData.date,
+    }
     : {
-        title: "",
-        amount: "",
-        date: "",
-      };
+      title: "",
+      amount: "",
+      date: "",
+    };
 
   const isSubmitting = navigation.state !== "idle";
 
@@ -57,7 +57,7 @@ function ExpenseForm() {
       method={expenseData ? "patch" : "post"}
       className="form"
       id="expense-form"
-      //onSubmit={submitHandler}
+    //onSubmit={submitHandler}
     >
       <p>
         <label htmlFor="title">Expense Title</label>
