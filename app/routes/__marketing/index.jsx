@@ -1,6 +1,13 @@
 import { Link } from "@remix-run/react";
 import { FaArrowRight, FaDollarSign, FaChartBar } from "react-icons/fa";
 
+export function meta() {
+  return {
+    title: 'Remix Expenses - complete app',
+    description: 'Manage your expenses with ease'
+  }
+}
+
 export default function Index() {
   return (
     <main>
@@ -46,4 +53,3 @@ export default function Index() {
   );
 }
 
-export function meta() {}
