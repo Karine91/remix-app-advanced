@@ -8,6 +8,12 @@ export function meta() {
   }
 }
 
+export function headers() {
+  return {
+    'Cache-Control': 'max-age=3600' // 60 minutes
+  }
+}
+
 export default function Index() {
   return (
     <main>
