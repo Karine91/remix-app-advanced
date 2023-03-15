@@ -8,9 +8,9 @@ export function meta() {
   }
 }
 
-export function headers() {
+export function headers({ actionHeader, loaderHeaders, parentHeaders }) {
   return {
-    'Cache-Control': 'max-age=3600' // 60 minutes
+    'Cache-Control': parentHeaders.get('Cache-Control')
   }
 }
 
@@ -59,3 +59,4 @@ export default function Index() {
   );
 }
 
+export const handle = { disableJs: true } // extra data, name of prop random

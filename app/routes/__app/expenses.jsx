@@ -1,3 +1,4 @@
+import { json } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import { FaPlus, FaDownload } from "react-icons/fa";
 
@@ -43,13 +44,23 @@ export async function loader({ request }) {
   const userId = await requireUserSession(request);
 
   const expenses = await getExpenses(userId);
-  return expenses;
+  return json(expenses, {
+    headers: {
+      'Cache-control': 'max-age=3'
+    }
+  });
   // if (!expenses?.length) {
   //   throw json(
   //     { message: "Could not find any expenses" },
   //     { status: 404, statusText: "No expenses found" }
   //   );
   // }
+}
+
+export function headers({ actionHeader, loaderHeaders, parentHeaders }) {
+  return {
+    'Cache-Control': loaderHeaders.get('Cache-Control')
+  }
 }
 
 export function CatchBoundary() {
