@@ -1,6 +1,6 @@
 [build]
   command = "npx prisma generate && remix build"
-  publish = "build"
+  publish = "public"
 
 [dev]
   command = "remix watch"
